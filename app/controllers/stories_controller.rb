@@ -1,24 +1,30 @@
 class StoriesController < ApplicationController
   before_action :signed_in_user, only: [:create, :destroy]
 
-  def index
-  end
-
   def create
     @story = current_user.stories.build(story_params)
     if @story.save
       flash[:success] = "Story created!"
-      redirect_to root_url
+      redirect_to current_user
     else
-      render 'static_pages/home'
+      render 'new'
     end
   end
 
   def destroy
   end
 
+  def new
+    @story = Story.new
+  end
+  
+  def show
+    @story = Story.find(params[:id])
+    @user = User.find(@story.user_id)
+  end
+
   private
     def story_params
-      params.require(:micropost).permit(:content)
+      params.require(:story).permit(:content, :title)
     end
 end

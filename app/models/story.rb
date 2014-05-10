@@ -5,4 +5,6 @@ class Story < ActiveRecord::Base
     
   validates :content, length: {maximum: 1000}
   validates :user_id, presence: true
+
+  validates :title, length: {maximum: 80},presence: true
 end

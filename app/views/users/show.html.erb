@@ -7,14 +7,18 @@
         <%= @user.username %>
       </h1>
     </section>
+     <%= link_to "Write a story", new_story_path, class: "btn btn-large btn-primary" %>
   </aside>
   <div class="span8">
+    <h3>Stories</h3>
     <% if @user.stories.any? %>
-      <h3>Stories (<%= @user.stories.count %>)</h3>
       <ol class="microposts">
         <%= render @stories %>
       </ol>
       <%= will_paginate @stories %>
+
+    <% else %>
+       <h4>You haven't posted any stories</h4>
     <% end %>
   </div>
 </div>

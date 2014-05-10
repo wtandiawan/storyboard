@@ -11,7 +11,8 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     @user = User.find(params[:id])
-    @microposts = @user.microposts.paginate(page: params[:page])
+    #@microposts = @user.stories.paginate(page: params[:page])
+    @stories = @user.stories.paginate(page: params[:page])
   end
 
   # GET /users/new
@@ -29,7 +30,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       sign_in @user
-      flash[:success] = "Welcome to the Sample App!"
+      flash[:success] = "Welcome to the Storyboard!"
       redirect_to @user
     else
       render 'new'
