@@ -1,8 +1,30 @@
+<% if @condition == "front" %>
+<% if @count % 4 == 0 %>
+<tr>
+<% end %>
+<td width = 200 height = 100>
+  <% if story.title.length > 20 %>
+     <%
+        @shortTitle = story.title[0..17] + "..."
+     %>
+     <h3><%= link_to @shortTitle, story %></>   
+  <% else %>
+     <h3><%= link_to story.title, story %></h3>  
+  <%end %>     
+  <h4>by <%= link_to User.find(story.user_id).username, User.find(story.user_id) %></h4>
+  <% @count = @count+1 %>
+</td>
+<% if @count % 4 == 0 %>
+</tr>
+<% end %>
+
+<% else %>
 <li>
   <span class="content">
   <h3><%= link_to story.title, story %></h3>
   </span>
-  <% if @condition == "front" %> 
-  <h4>by <%= link_to User.find(story.user_id).username, User.find(story.user_id) %></h4>
-  <% end %>
 </li>
+<%end%>
+
+
+

@@ -1,6 +1,8 @@
 <div class = "center hero-unit">
   <h3>Most Recent Stories</h1>  
-      <ul class="microposts">
+      <table border= 1>
+        <tr>
         <%= render @stories.paginate(page: params[:page]) %>
-      </ul>
-      <%= will_paginate @stories.paginate(page: params[:page]) %>
+        </tr> 
+        </table>
+      

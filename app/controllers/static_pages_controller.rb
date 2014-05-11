@@ -4,5 +4,6 @@ require 'will_paginate/array'
     @stories = Story.find(:all)
     @condition = "front"
     @user = User.find(:all)
+    @count = 0;
   end
 end
