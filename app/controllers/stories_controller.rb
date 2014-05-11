@@ -7,6 +7,8 @@ class StoriesController < ApplicationController
    
   def create
     @story = current_user.stories.build(story_params)
+    @story[:like] = 0
+    @story[:dislike] = 0
     if @story.save
       flash[:success] = "Story created!"
       redirect_to current_user
@@ -30,6 +32,6 @@ class StoriesController < ApplicationController
 
   private
     def story_params
-      params.require(:story).permit(:content, :title)
+      params.require(:story).permit(:content, :title, :like, :dislike)
     end
 end

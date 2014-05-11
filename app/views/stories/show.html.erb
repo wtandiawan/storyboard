@@ -8,14 +8,19 @@
     </p>  
   </div> 
 </div>
+<div>
+<ul>
+<li>like:#will be linked to like (to increase like score) <%= @story[:like]%></li>
+<li>dislike:#will be linked to dislike (to increase dislike score) <%= @story[:dislike] %></li>
+</ul>
 
+</div>
 <div>
    writer :
    <em><%= @user.username %></em>
 </div>
 
 <div>
-
 <h3>Stories by <em><%= @user.username %></em></h3>
       <ul class="microposts">
       <%= render @user.stories.paginate(page: params[:page]) %>

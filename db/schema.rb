@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140511014031) do
+ActiveRecord::Schema.define(version: 20140511062011) do
 
   create_table "stories", force: true do |t|
     t.text     "content",    limit: 255
@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(version: 20140511014031) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "title"
+    t.integer  "like"
+    t.integer  "dislike"
   end
 
   create_table "users", force: true do |t|
