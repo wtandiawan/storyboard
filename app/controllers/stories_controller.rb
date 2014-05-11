@@ -1,6 +1,10 @@
 class StoriesController < ApplicationController
   before_action :signed_in_user, only: [:create, :new, :destroy]
-
+  
+  def index
+    redirect_to root_path
+  end
+   
   def create
     @story = current_user.stories.build(story_params)
     if @story.save
