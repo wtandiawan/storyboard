@@ -1,11 +1,27 @@
-<p>
-  <h3><%= @story.title %></h3>
-  <%= @story.content %>
-</p>
+<div>
+  <div>
+    <h3><%= @story.title %></h3>
+  </div>
+  <div> 
+    <p>
+    <%= @story.content %>
+    </p>  
+  </div> 
+</div>
 
-<p>
+<div>
    writer :
-   <%= @user.username %>
+   <em><%= @user.username %></em>
+</div>
 
-</p>
+<div>
+
+<h3>Stories by <em><%= @user.username %></em></h3>
+      <ul class="microposts">
+      <%= render @user.stories.paginate(page: params[:page]) %>
+      </ul>
+      <%= will_paginate @user.stories.paginate(page: params[:page]) %>
+</div>
+
+
 

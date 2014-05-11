@@ -1,3 +1,6 @@
 <div class = "center hero-unit">
-  <h1>Storyboard</h1>
-  <h2>The place where stories are told</h2>
+  <h3>Most Recent Stories</h1>  
+      <ul class="microposts">
+        <%= render @stories.paginate(page: params[:page]) %>
+      </ul>
+      <%= will_paginate @stories.paginate(page: params[:page]) %>

@@ -1,5 +1,5 @@
 class StoriesController < ApplicationController
-  before_action :signed_in_user, only: [:create, :destroy]
+  before_action :signed_in_user, only: [:create, :new, :destroy]
 
   def create
     @story = current_user.stories.build(story_params)
@@ -21,6 +21,7 @@ class StoriesController < ApplicationController
   def show
     @story = Story.find(params[:id])
     @user = User.find(@story.user_id)
+    @conditon = ""
   end
 
   private

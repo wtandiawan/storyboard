@@ -11,7 +11,6 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     @user = User.find(params[:id])
-    #@microposts = @user.stories.paginate(page: params[:page])
     @stories = @user.stories.paginate(page: params[:page])
   end
 
