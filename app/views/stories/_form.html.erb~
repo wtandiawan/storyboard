@@ -1,0 +1,7 @@
+<%= form_for(@story) do |f| %>
+  <div class="field">
+    <%= f.text_field :title, placeholder: "Put the title of your story" %>
+    <%= f.text_area :content, placeholder: "Write new story..." %>
+  </div>
+  <%= f.submit "Post", class: "btn btn-large btn-primary" %>
+<% end %>
