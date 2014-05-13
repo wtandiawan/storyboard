@@ -1,11 +1,11 @@
 module ApplicationHelper
 
   def full_title(page_title)
-    base_title = "Storyboard - where stories are told"
+    base_title = "Storyboard "
     if page_title.empty?
       base_title
     else
-      "#{base_title}|#{page_title}"
+      "#{base_title}| #{page_title}"
     end
   end
 end
