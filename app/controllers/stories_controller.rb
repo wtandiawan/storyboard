@@ -30,6 +30,40 @@ class StoriesController < ApplicationController
     @conditon = ""
   end
 
+  def like
+    @storyid = params[:id] 
+    @story = Story.find(params[:id])
+    if !signed_in?
+      flash[:warning] = "You have to be signed in to vote!"
+      redirect_to @story
+    else  
+      @story[:like] = @story[:like]+1
+      if @story.save
+        flash[:success] = "You successfully liked this story!"
+        redirect_to @story
+      else
+    
+      end  
+    end
+  end
+
+  def dislike
+    @storyid = params[:id] 
+    @story = Story.find(params[:id])
+    if !signed_in?
+      flash[:warning] = "You have to be signed in to vote!"
+      redirect_to @story
+    else  
+      @story[:dislike] = @story[:dislike]+1
+      if @story.save
+        flash[:success] = "You successfully disliked this story!"
+        redirect_to @story
+      else
+        #put something here
+      end  
+    end
+  end
+
   private
     def story_params
       params.require(:story).permit(:content, :title, :like, :dislike)

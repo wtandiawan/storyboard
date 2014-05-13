@@ -10,8 +10,8 @@
 </div>
 <div>
 <ul>
-<li>like:#will be linked to like (to increase like score) <%= @story[:like]%></li>
-<li>dislike:#will be linked to dislike (to increase dislike score) <%= @story[:dislike] %></li>
+<li><%= link_to "Like", like_path(@story, :id => @story.id) %> : <%= @story[:like]%></li>
+<li><%= link_to "Dislike", dislike_path(@story, :id => @story.id) %> : <%= @story[:dislike] %></li>
 </ul>
 
 </div>
