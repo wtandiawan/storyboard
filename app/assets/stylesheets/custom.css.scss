@@ -43,9 +43,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: 3em;
+  font-size: 2.2em;
   letter-spacing: -2px;
-  margin-bottom: 30px;
+  margin-bottom: 15px;
   text-align: center;
   color:#EDEDED;
 }
@@ -151,6 +151,31 @@ aside {
   }
 }
 
+.storywrapper{
+  margin:10px;
+  width:700px;
+  margin-left:auto;
+  margin-right:auto;
+  background:#ededed;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
+  padding:15px;
+}
+
+
+
+.likedislike{
+  list-style-type:none;
+  height:20px;
+  margin:auto;
+}
+
+.likedislike li{
+  width:40%;
+  padding-left:20px;
+  float:left;
+}
+
 .gravatar {
   float: left;
   margin-right: 10px;
@@ -232,7 +257,7 @@ input {
 
   li {
     padding: 10px 0;
-    border-top: 1px solid #e8e8e8;
+    
   }
 }
 .content {

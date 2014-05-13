@@ -1,16 +1,17 @@
 <% provide(:title, 'Write your story') %>
 <h1>Tell your story</h1>
-<div class="row">
-  <div class="span6 offset3">
+<div class = "hero-unit" style="width:400px;margin-left:auto;margin-right:auto;padding:25px;">
+<div class="row" >
+  <div class="span5">
     <%= form_for(@story) do |f| %>
       <%= render 'shared/story_error_messages' %>
       <div class="field">
         <%= f.text_field :title, placeholder: "Put the title of your story" %>
-        <%= f.text_area :content, placeholder: "Write new story..." %>
+        <%= f.text_area :content, placeholder: "Write new story...", size: '50x20' %>
       </div>
       <%= f.submit "Post", class: "btn btn-large btn-primary" %>
     <% end %>
   </div>
 </div>
-
+</div>
 

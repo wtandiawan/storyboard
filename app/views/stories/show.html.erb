@@ -1,32 +1,31 @@
-<div>
+<div style="float:left;">
   <div>
-    <h3><%= @story.title %></h3>
+    <h1><%= @story.title %></h1>
+    <div class ="storywrapper" >
+    <ul class = "likedislike">
+      <li><%= link_to "Like", like_path(@story, :id => @story.id) %> : <%= @story[:like]%></li style = "float:left;">
+      <li><%= link_to "Dislike", dislike_path(@story, :id => @story.id) %> : <%= @story[:dislike]%></li>
+    </ul>
+    </div>
   </div>
-  <div> 
+  <div class ="storywrapper"> 
     <p>
     <%= @story.content %>
     </p>  
   </div> 
+  <div class ="storywrapper"">
+     writer :
+     <em><%= @user.username %></em>
+  </div>
 </div>
-<div>
-<ul>
-<li><%= link_to "Like", like_path(@story, :id => @story.id) %> : <%= @story[:like]%></li>
-<li><%= link_to "Dislike", dislike_path(@story, :id => @story.id) %> : <%= @story[:dislike] %></li>
-</ul>
-
-</div>
-<div>
-   writer :
-   <em><%= @user.username %></em>
-</div>
-
-<div>
+<div class = "hero-unit" style = "float:left;width:200px;margin-left:10px;">
 <h3>Stories by <em><%= @user.username %></em></h3>
       <ul class="microposts">
       <%= render @user.stories.paginate(page: params[:page]) %>
       </ul>
       <%= will_paginate @user.stories.paginate(page: params[:page]) %>
 </div>
-
+<div style="clear:both;">
+</div>
 
 
