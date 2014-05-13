@@ -8,7 +8,7 @@ Storyboard::Application.routes.draw do
   match '/signout', to: 'sessions#destroy',     via: 'delete'
 
   match '/new_story', to: 'stories#new',        via: 'get'
-  match '/like' , to: 'stories#like', 	via: 'get'
+  match '/like' , to: 'stories#like', 		via: 'get'
   match '/dislike' , to: 'stories#dislike', 	via: 'get'
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -1,8 +1,15 @@
 <div class = "center hero-unit">
-  <h3>Most Recent Stories</h1>  
+  <h3>Most Recent Stories</h3>  
       <table border= 1>
         <tr>
         <%= render @stories.paginate(page: params[:page]) %>
         </tr> 
         </table>
-      
+</div>
+<div>
+<h3>Top 5 Stories</h3>
+<%= render @likedStories.paginate(page: params[:page]) %>
+
+</div>      
+
+
