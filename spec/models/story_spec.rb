@@ -4,7 +4,6 @@ describe Story do
 
   let(:user) { FactoryGirl.create(:user) }
   before do
-    # This code is not idiomatically correct.
     @story = Story.new(title: "Lorem",content: "Lorem ipsum", user_id: user.id,like: 0, dislike: 0)
   end
   subject { @story }
