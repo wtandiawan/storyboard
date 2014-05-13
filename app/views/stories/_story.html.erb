@@ -2,22 +2,23 @@
 <% if @count % 4 == 0 %>
 <tr>
 <% end %>
-<td width = 200 height = 100>
+<td width = 200 height = 100 style>
+  <div class="storygrid">
   <% if story.title.length > 20 %>
      <%
         @shortTitle = story.title[0..17] + "..."
      %>
-     <h3><%= link_to @shortTitle, story %></>   
+     <h4><%= link_to @shortTitle, story %></h4>   
   <% else %>
-     <h3><%= link_to story.title, story %></h3>  
+     <h4><%= link_to story.title, story %></h4>  
   <%end %>     
   <h4>by <%= link_to User.find(story.user_id).username, User.find(story.user_id) %></h4>
   <% @count = @count+1 %>
+  </div>
 </td>
 <% if @count % 4 == 0 %>
 </tr>
 <% end %>
-
 <% else %>
 <li>
   <span class="content">

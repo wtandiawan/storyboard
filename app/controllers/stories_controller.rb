@@ -29,7 +29,8 @@ class StoriesController < ApplicationController
     @user = User.find(@story.user_id)
     @conditon = ""
   end
-
+  
+  #like and dislike could be refactored further perhaps after other functionality is done
   def like
     @storyid = params[:id] 
     @story = Story.find(params[:id])
@@ -49,7 +50,7 @@ class StoriesController < ApplicationController
           flash[:success] = "You successfully liked this story!"
           redirect_to @story
         else
-        #put something here
+          redirect_to @story
         end
       else
         flash[:warning] = "You have voted for this story"
@@ -77,7 +78,7 @@ class StoriesController < ApplicationController
           flash[:success] = "You successfully disliked this story!"
           redirect_to @story
         else
-        #put something here
+          redirect_to @story
         end
       else
         flash[:warning] = "You have voted for this story"

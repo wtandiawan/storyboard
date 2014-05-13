@@ -9,6 +9,7 @@ $grayMediumLight: #eaeaea;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
+
 /* universal */
 
 html {
@@ -17,6 +18,7 @@ html {
 
 body {
   padding-top: 60px;
+  background: #151515;
 }
 
 section {
@@ -45,6 +47,7 @@ h1 {
   letter-spacing: -2px;
   margin-bottom: 30px;
   text-align: center;
+  color:#EDEDED;
 }
 
 h2 {
@@ -61,6 +64,14 @@ p {
   line-height: 1.7em;
 }
 
+/*container*/
+#container{
+  margin-right:auto;
+  margin-left:auto;
+  width: 1200px;
+  height: 100%;
+  display:block; 
+}
 
 /* header */
 
@@ -239,6 +250,21 @@ aside {
     height: 100px;
     margin-bottom: 5px;
   }
+}
+
+.storygrid{
+  width:170px;height:90px;border:2px solid #999;padding:5px;background:#ccc;margin:5px;
+}
+
+.storygrid:hover{
+  width:170px;height:90px;border:2px solid #555;padding:5px;background:#ddd;
+}
+
+/*sidebar*/
+
+.rightbar{
+  margin-left:20px;
+  padding-left:20px;
 }
 
 /* micropost jQuery countdown */

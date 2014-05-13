@@ -1,14 +1,16 @@
-<div class = "center hero-unit">
-  <h3>Most Recent Stories</h3>  
-      <table border= 1>
-        <tr>
-        <%= render @stories.paginate(page: params[:page]) %>
-        </tr> 
-        </table>
-</div>
-<div>
-<h3>Top 5 Stories</h3>
-<%= render @likedStories.paginate(page: params[:page]) %>
-</div>      
+<h1 style="text-align:left;"> Storyboard: where stories are told </h1>
+  <div class = "left hero-unit" style ="float:left; width:750px;" >
+    <h3>Most Recent Stories</h3>  
+    <table>
+       <tr>
+       <%= render @stories.paginate(page: params[:page]) %>
+       </tr> 
+    </table>
+  </div>
+  <div class = "hero-unit" style = "float:right;width:200px;margin-left:10px;">
+    <h3>Top 5 Stories</h3>
+    <%= render @likedStories.paginate(page: params[:page]) %>
+  </div>      
 
+<div style ="clear:both;"></div>
 
