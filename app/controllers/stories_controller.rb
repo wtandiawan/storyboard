@@ -36,14 +36,25 @@ class StoriesController < ApplicationController
     if !signed_in?
       flash[:warning] = "You have to be signed in to vote!"
       redirect_to @story
-    else  
-      @story[:like] = @story[:like]+1
-      if @story.save
-        flash[:success] = "You successfully liked this story!"
-        redirect_to @story
+    else
+      #check if current_user has voted
+      @votedstory = VotedStory.find_by_user_id_and_story_id(current_user.id,@storyid)
+      if @votedstory == nil
+        @story[:like] = @story[:like]+1
+        if @story.save
+          @vs = VotedStory.new
+          @vs[:user_id] = current_user[:id]
+          @vs[:story_id] = @story[:id]
+          @vs.save 
+          flash[:success] = "You successfully liked this story!"
+          redirect_to @story
+        else
+        #put something here
+        end
       else
-    
-      end  
+        flash[:warning] = "You have voted for this story"
+        redirect_to @story
+      end   
     end
   end
 
@@ -53,14 +64,25 @@ class StoriesController < ApplicationController
     if !signed_in?
       flash[:warning] = "You have to be signed in to vote!"
       redirect_to @story
-    else  
-      @story[:dislike] = @story[:dislike]+1
-      if @story.save
-        flash[:success] = "You successfully disliked this story!"
-        redirect_to @story
-      else
+    else
+      #check if current_user has voted
+      @votedstory = VotedStory.find_by_user_id_and_story_id(current_user.id,@storyid)
+      if @votedstory == nil  
+        @story[:dislike] = @story[:dislike]+1
+        if @story.save
+          @vs = VotedStory.new
+          @vs[:user_id] = current_user[:id]
+          @vs[:story_id] = @story[:id]
+          @vs.save 
+          flash[:success] = "You successfully disliked this story!"
+          redirect_to @story
+        else
         #put something here
-      end  
+        end
+      else
+        flash[:warning] = "You have voted for this story"
+        redirect_to @story
+      end   
     end
   end
 
