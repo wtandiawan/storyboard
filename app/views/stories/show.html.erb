@@ -21,9 +21,9 @@
 <div class = "hero-unit" style = "float:left;width:200px;margin-left:10px;">
 <h3>Stories by <em><%= @user.username %></em></h3>
       <ul class="microposts">
-      <%= render @user.stories.paginate(page: params[:page]) %>
+      <%= render @user.stories.paginate(page: params[:page],:per_page => 5) %>
       </ul>
-      <%= will_paginate @user.stories.paginate(page: params[:page]) %>
+      <%= will_paginate @user.stories.paginate(page: params[:page], :per_page => 5) %>
 </div>
 <div style="clear:both;">
 </div>
