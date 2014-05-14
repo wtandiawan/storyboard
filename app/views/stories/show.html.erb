@@ -18,12 +18,18 @@
      <em><%= @user.username %></em>
   </div>
 </div>
-<div class = "hero-unit" style = "float:left;width:200px;margin-left:10px;">
+<div class = "hero-unit" style = "float:left;width:200px;margin-left:10px;height:500px;">
 <h3>Stories by <em><%= @user.username %></em></h3>
-      <ul class="microposts">
+<div style="height:390px">      
+<ul class="microposts">
       <%= render @user.stories.paginate(page: params[:page],:per_page => 5) %>
       </ul>
+</div>
+<div id="storypagination">
+
       <%= will_paginate @user.stories.paginate(page: params[:page], :per_page => 5) %>
+</div>
+
 </div>
 <div style="clear:both;">
 </div>
